@@ -43,7 +43,7 @@ func main() {
 
 	sig = make(chan os.Signal)
 	done = make(chan bool)
-	files = make(chan string)
+	files = make(chan string, 1000)
 
 	// мониторинг папок в отдельном потоке
 	go detector.MonitorFolder(*pathPtr, done, files)
