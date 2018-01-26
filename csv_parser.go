@@ -75,8 +75,8 @@ func (o *Overlaps) dump() ([]byte, error) {
 
 func findOverlaps(segments []*LineSegment, checkSelfOverlapping bool) Overlaps {
 	var overlaps Overlaps
-	for _, v1 := range segments {
-		for _, v2 := range segments {
+	for idx, v1 := range segments[:len(segments)-1] {
+		for _, v2 := range segments[idx:] {
 			if v1.internalID == v2.internalID || v1.routeID == v2.routeID && !checkSelfOverlapping {
 				continue
 			}
