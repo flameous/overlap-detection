@@ -59,7 +59,7 @@ func almostZero(val1 float64) bool {
 	return math.Abs(val1) < 0.00001
 }
 
-// точность в три точки после запятой -- ничем не обоснована
+// точность в три знака после запятой -- ничем не обоснована
 func (l *LineSegment) getLineFormula() string {
 	deltaX := l.startX - l.endX
 	deltaY := l.startY - l.endY
